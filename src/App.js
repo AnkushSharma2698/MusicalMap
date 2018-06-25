@@ -6,9 +6,11 @@ import SearchBar from './components/SearchBar';
 class App extends Component {
   render() {
     return (
+    <div>Home Page
       <div>
         <SearchBar/>
       </div>
+    </div>
     );
   }
 }

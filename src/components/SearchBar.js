@@ -16,6 +16,7 @@ class SearchBar extends Component {
             label = "Find Artist"
             className = "Search"
             margin= "normal"
+            style = {{width: 300}}
           />
         </form>
       </div>
