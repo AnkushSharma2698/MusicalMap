@@ -2,6 +2,7 @@ import SearchBar from '../SearchBar';
 import React, { Component } from 'react';
 import '../../Styling/Homepage.css';
 import Header from './Header';
+import Footer from './Footer';
 
 class Homepage extends Component {
   render() {
@@ -10,8 +11,8 @@ class Homepage extends Component {
         <div>
           <Header />
           <SearchBar />
+          <Footer />
         </div>
-        <h3 className="Artists">Top Artists</h3>
       </div>
     );
   }
