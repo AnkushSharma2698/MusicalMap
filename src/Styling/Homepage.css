@@ -1,6 +1,17 @@
-.App {
+.Homepage {
   text-align: center;
-  background-image: url(http://www.bealecorner.org/red/test-080108/pics/2k-Dark-5600-1-1.png);
-  background-repeat: repeat;
-  background-color: #cccccc;
+  width: 100%;
+  height: 100%;
+}
+
+.Title {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+}
+
+.Artists {
+  positon: relative;
+  margin-bottom: inherit;
 }
