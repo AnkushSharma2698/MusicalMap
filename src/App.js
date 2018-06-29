@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import SearchBar from './components/SearchBar';
 import Homepage from './components/Hpage/Homepage';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
-    return <Homepage />;
+    return (
+      <BrowserRouter>
+        <div>
+          <Route exact={true} path="/" component={Homepage} />
+        </div>
+      </BrowserRouter>
+    );
   }
 }
 

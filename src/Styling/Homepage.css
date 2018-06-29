@@ -9,9 +9,10 @@
   position: absolute;
   width: 100%;
   height: 50%;
+  top: 30px;
 }
 
 .Artists {
-  positon: relative;
-  margin-bottom: inherit;
+  position: relative;
+  top: -225px;
 }

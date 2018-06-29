@@ -3,16 +3,16 @@ import React, { Component } from 'react';
 import '../../Styling/Homepage.css';
 import Header from './Header';
 import Footer from './Footer';
+import SearchButton from '../SearchButton';
 
 class Homepage extends Component {
   render() {
     return (
       <div className="Homepage">
-        <div>
-          <Header />
-          <SearchBar />
-          <Footer />
-        </div>
+        <Header />
+        <SearchBar />
+        <SearchButton />
+        <Footer />
       </div>
     );
   }
