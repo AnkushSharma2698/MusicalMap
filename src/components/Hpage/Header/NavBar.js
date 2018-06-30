@@ -4,7 +4,7 @@ import '../../../Styling/HomeIcon.css';
 const NavBar = () => {
   return (
     <div>
-      <nav className="#1b5e20 green darken-4">
+      <nav className="grey darken-4">
         <div className="nav-wrapper">
           <div className="HomeLogo">
             <a href="#!" class="brand-logo">

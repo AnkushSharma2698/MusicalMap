@@ -8,7 +8,7 @@ const Footer = () => {
       <h5 className="Artists">Top Artists</h5>
       <div class="row">
         <div class="col s12 m5">
-          <div className="card-panel green darken-4">
+          <div className="card-panel black">
             <span className="white-text">Contains top Spotify Artists</span>
           </div>
         </div>

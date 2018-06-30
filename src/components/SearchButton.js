@@ -5,7 +5,7 @@ class SearchButton extends Component {
   render() {
     return (
       <div>
-        <a class="button #1b5e20 green darken-4" href="#">
+        <a class="button black" href="#">
           Submit
         </a>
       </div>
