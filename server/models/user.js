@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose; //same as const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  googleId: String
+  googleId: String,
+  spotifyId: String
 });
 
 //creating a model class, first argument is the name fo the collection , second arg is the user schema
