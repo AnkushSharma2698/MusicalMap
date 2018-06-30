@@ -1,7 +1,4 @@
 h5 {
-  text-decoration: underline;
-  text-decoration-style: solid;
-  text-decoration-color: #000000;
 }
 
 .row {
@@ -10,4 +7,10 @@ h5 {
 
 #Footer {
   padding-top: 30px;
+}
+
+.githubBoys {
+  text-decoration: underline;
+  width: 100%;
+  padding-left: 10px;
 }

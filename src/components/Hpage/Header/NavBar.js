@@ -15,7 +15,7 @@ const NavBar = () => {
             <li>
               <a
                 href="sass.html"
-                className="#d32f2f red darken-2 btn waves-effect waves-light"
+                className="#b71c1c red darken-4 btn waves-effect waves-light"
               >
                 Login With Google
               </a>
