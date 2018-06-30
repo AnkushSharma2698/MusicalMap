@@ -1,13 +1,8 @@
 .parent {
+  justify-content: center;
   display: table;
-  width: 100%;
-  padding: 300px 0;
+  width: 65%;
+  padding-bottom: 175;
   position: relative;
-}
-
-.SearchBar {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-  position: relative;
+  padding-left: 517px;
 }

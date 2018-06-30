@@ -1,18 +1,5 @@
 .Homepage {
-  text-align: center;
   width: 100%;
   height: 100%;
-}
-
-.Title {
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  top: 30px;
-}
-
-.Artists {
-  position: relative;
-  top: -225px;
+  justify-content: center;
 }

@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import SearchBar from './components/SearchBar';
 import Homepage from './components/Hpage/Homepage';
 import { BrowserRouter, Route } from 'react-router-dom';
+//import './Styling/Appdiv.css';
 
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <div>
-          <Route exact={true} path="/" component={Homepage} />
-        </div>
-      </BrowserRouter>
+      <div className="Appdiv">
+        <BrowserRouter>
+          <div>
+            <Route exact path="/" component={Homepage} />
+          </div>
+        </BrowserRouter>
+      </div>
     );
   }
 }
