@@ -1,0 +1,33 @@
+.img-shadow-1 {
+  -webkit-box-shadow: 0 28px 16px -26px black;
+  -moz-box-shadow: 0 28px 16px -26px black;
+  box-shadow: 0 28px 16px -26px black;
+}
+
+.img-shadow-1:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+
+  -webkit-box-shadow: 0 58px 36px -56px black;
+  -moz-box-shadow: 0 58px 36px -56px black;
+  box-shadow: 0 58px 36px -56px black;
+}
+
+.img-shadow-1 {
+  transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+}
+
+.img-shadow-1:hover {
+  transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+}

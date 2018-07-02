@@ -1,0 +1,46 @@
+.Title {
+  width: 100%;
+  padding: 80px;
+  text-align: center;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 80px;
+  letter-spacing: -3px;
+  font-weight: 700;
+  color: #fff;
+  transition: all 0.3s ease-in;
+  text-decoration: none;
+  font-size: 70px;
+}
+
+.HomeLogo {
+  display: flex;
+  justify-content: left;
+  padding-left: 30px;
+}
+
+header:hover {
+  -webkit-stroke-width: 5.3px;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #1b5e20;
+}
+
+h4 {
+  color: #fff;
+  transition: all 0.3s ease-in;
+  text-decoration: none;
+}
+
+h4:hover {
+  -webkit-stroke-width: 5.3px;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #1b5e20;
+}
