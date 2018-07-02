@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from './components/SearchBar';
 import Homepage from './components/Hpage/Homepage';
 import { BrowserRouter, Route } from 'react-router-dom';
-//import './Styling/Appdiv.css';
+import Dashboard from './components/Dashboard';
 
 class App extends Component {
   render() {
@@ -11,6 +11,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Route exact path="/" component={Homepage} />
+            <Route exact path="/Dashboard" component={Dashboard} />
           </div>
         </BrowserRouter>
       </div>

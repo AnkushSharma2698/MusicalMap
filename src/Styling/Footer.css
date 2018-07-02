@@ -1,8 +1,9 @@
-h5 {
+.OverFoot {
 }
 
 .row {
-  padding-left: 540px;
+  width: 100%;
+  padding-left: 500px;
 }
 
 #Footer {
@@ -12,5 +13,9 @@ h5 {
 .githubBoys {
   text-decoration: underline;
   width: 100%;
-  padding-left: 10px;
+}
+
+#pic {
+  display: flex;
+  align-items: flex-start;
 }

@@ -1,8 +1,6 @@
-.parent {
+/* .parent {
+  display: flex;
   justify-content: center;
-  display: table;
-  width: 65%;
-  padding-bottom: 175;
-  position: relative;
-  padding-left: 517px;
-}
+  width: 100%;
+  flex-grow: 10;
+} */

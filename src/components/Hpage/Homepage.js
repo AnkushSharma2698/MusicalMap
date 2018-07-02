@@ -13,18 +13,13 @@ var styles = {
 class Homepage extends Component {
   render() {
     return (
-      <div>
-        <span align="center" className="Homepage">
+      <div className="container">
+        <div className="Homepage col s12">
           <Header />
           <SearchBar />
           <SearchButton className="SearchButton" />
           <Footer />
-          <div class="image-hover img-shadow-1">
-            <a href="https://github.com/AnkushSharma2698/MusicalMap">
-              <img src={GitIcon} height="42" width="42" />
-            </a>
-          </div>
-        </span>
+        </div>
       </div>
     );
   }
