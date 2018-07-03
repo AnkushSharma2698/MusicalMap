@@ -31,7 +31,11 @@ passport.use(
           done(null, existingUser); //first argument is error if null then now error
         } else {
           // make new record
-          new User({ spotifyId: profile.id })
+          new User({
+            spotifyId: profile.id,
+            accessToken: accessToken,
+            refreshToken: refreshToken
+          })
             .save()
             .then(user => done(null, user));
         }
