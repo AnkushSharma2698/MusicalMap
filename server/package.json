@@ -9,17 +9,23 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.3",
     "mongoose": "^5.1.7",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
-    "passport-spotify": "^1.0.0"
+    "passport-spotify": "^1.0.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "thunk": "0.0.1"
   },
   "devDependencies": {
     "nodemon": "^1.17.5"

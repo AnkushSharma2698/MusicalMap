@@ -21,16 +21,17 @@ passport.use(
     {
       clientID: keys.spotifyClientID,
       clientSecret: keys.spotifyClientSecret,
-      callbackURL: "/auth/spotify/callback"
+      callbackURL: "/auth/spotify/callback",
+      proxy:true
     },
     (accessToken, refreshToken, expires_in, profile, done) => {
-      User.findOne({ spotfyId: profile.id }).then(existingUser => {
+      User.findOne({ spotifyId: profile.id }).then(existingUser => {
         if (existingUser) {
           // we already have a record with the givien ID
           done(null, existingUser); //first argument is error if null then now error
         } else {
           // make new record
-          new User({ spotfyId: profile.id })
+          new User({ spotifyId: profile.id })
             .save()
             .then(user => done(null, user));
         }
@@ -44,7 +45,8 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: "/auth/google/callback"
+      callbackURL: "/auth/google/callback",
+      proxy:true
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ googleId: profile.id }).then(existingUser => {

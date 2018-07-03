@@ -2,6 +2,15 @@
   "name": "musical-map",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/auth/google": {
+      "target":"http://localhost:5000"
+    },
+    "/auth/spotify": {
+      "target":"http://localhost:5000"
+    }
+
+  },
   "dependencies": {
     "@material-ui/core": "^1.2.3",
     "@material-ui/icons": "^1.1.0",
