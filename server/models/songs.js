@@ -7,7 +7,8 @@ const songSchema = new Schema({
   image: String,
   externalURL: String,
   songId: String,
-  previewURL: String
+  previewURL: String,
+  uri: String,
 });
 
 mongoose.model("songs", songSchema);
