@@ -19,6 +19,10 @@ const clientDomain = "http://localhost:5000";
 const domain = "http://localhost:5000";
 var redirect_uri = `${domain}/callback`; // Your redirect uri
 const mongoose = require(mongoose);
+require("./models/user");
+const User = mongoose.model("users");
+
+mongoose.connect
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
