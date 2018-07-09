@@ -18,7 +18,7 @@ var client_secret = keys.spotifyClientSecret; // Your secret
 const clientDomain = "http://localhost:5000";
 const domain = "http://localhost:5000";
 var redirect_uri = `${domain}/callback`; // Your redirect uri
-
+const mongoose = require(mongoose);
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
