@@ -16,13 +16,13 @@ const keys = require("../../config/keys");
 var client_id = keys.spotifyClientID;
 var client_secret = keys.spotifyClientSecret; // Your secret
 const clientDomain = "http://localhost:5000";
-const domain = "http://localhost:5000";
-var redirect_uri = `${domain}/callback`; // Your redirect uri
+const domain = "http://localhost:3000";
+var redirect_uri = `${domain}/Dashboard`; // Your redirect uri
 const mongoose = require('mongoose');
 require("./models/user");
 const User = mongoose.model("users");
 
-mongoose.connect(keys.mongoURI, {useNewUrlParser: true });
+mongoose.connect(keys.mongoURI);
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -120,13 +120,13 @@ app.get('/callback', function(req, res) {
         });
 
         // we can also pass the token to the browser to make requests from there
-        res.redirect('http://localhost:3000/#' +
+        res.redirect('http://localhost:3000/Dashboard' +
           querystring.stringify({
             access_token: access_token,
             refresh_token: refresh_token
           }));
       } else {
-        res.redirect('/#' +
+        res.redirect('/Dashboard' +
           querystring.stringify({
             error: 'invalid_token'
           }));

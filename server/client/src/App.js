@@ -68,8 +68,8 @@ class App extends Component {
         {/* ======BACKGROUND PARTICLE===== */}
         {/* START OF COMPONENTS===and grouping the routes in a switch statement */}
         <Switch>
-          <Route path='/' component={HomePage}/>
-          <Route path='/Dashboard' component={Dashboard}/>
+          <Route exact path='/' component={HomePage}/>
+          <Route exact path='/Dashboard' component={Dashboard}/>
         </Switch>
       </div>
     )
