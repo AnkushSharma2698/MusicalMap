@@ -3,8 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-//===IMPORTING for mdb-React
+//==Using React-Router-Dom===//
+import { BrowserRouter } from 'react-router-dom'
+//===IMPORTING for tachyons
+import 'tachyons';
 
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+  , document.getElementById('root'));
 registerServiceWorker();
