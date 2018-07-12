@@ -1,5 +1,29 @@
 .Home {
   margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.particles {
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left: 0;
+  z-index: -1;
+}
+
+.grow {
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+.grow:hover,
+.grow:focus {
+  transform: scale(1.05);
+}
+
+.Title {
 }
 
 .Button {
@@ -7,7 +31,7 @@
 }
 
 h1 {
-  
+
   color:white;
   font-weight: 900;
 }
