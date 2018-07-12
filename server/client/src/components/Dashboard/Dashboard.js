@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography'
 import Particles from 'react-particles-js';
 import particlesOptions from '../../Background/particlesOptions';
 
+import NavBar from '../../NavBar/NavBar';
+
 //Social Media styling
 const mediaStyle  = {
   fill:'currentcolor'
@@ -23,17 +25,7 @@ class Dashboard extends Component {
              params={particlesOptions}
            />
         {/* ====Navbar goes here ===== */}
-        <nav className="flex justify-between bb b--white-10 w-100 pv0" >
-          <a className="link white-70 hover-white no-underline flex items-center pa3" href="">
-              Home
-          </a>
-          <div className="flex-grow pa3 flex items-center">
-            <a className="f6 link dib white dim mr3 mr4-ns" href="#0">About</a>
-            <a className="f6 link dib white dim mr3 mr4-ns" href="#0">Profile</a>
-            <a className="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" href="#0">Sign Out</a>
-          </div>
-        </nav>
-
+        <NavBar/>
         <div>
             <h1>Find Your Favorite Artists!</h1>
         </div>
@@ -41,6 +33,19 @@ class Dashboard extends Component {
         <div id='search-box' className='search-box'>
           <input type='text' classNameName='typeahead' placeholder='Search for any artist'/>
         </div>
+        {/* /=========TOP ARTISTS CARD=========/ */}
+        <article class="center mw5 mw6-ns hidden ba mv4">
+          <h1 class="f4 white mv0 pv2 ph3">Top Artists</h1>
+          <div class="pa3 bt">
+            <p class="f6 f5-ns lh-copy measure mv0" id="ArtistList">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+              tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+              vero eos et accusam et justo duo dolores et ea rebum.
+            </p>
+          </div>
+        </article>
+
+
         {/* =======ADDING SOCIALS ON THE BOTTOM OF THE PAGE=========== */}
         <footer class="pv4 ph3 ph5-ns tc">
           <a class="link dim gray dib h2 w2 br-100 mr3 pa2 bg-near-white ba b--black-10" href="#" title="">
