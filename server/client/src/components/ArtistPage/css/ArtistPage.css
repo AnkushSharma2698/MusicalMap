@@ -6,15 +6,12 @@
   padding: 0;
 }
 
-body {
-  background: #323c41;
-}
 
 .blog-card {
   width: 350px;
   height: 500px;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   margin: -250px 0 0 -175px;
   overflow: hidden;
@@ -71,11 +68,11 @@ img {
   left: 0;
 }
 
-h3 {
+h2 {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 800;
   letter-spacing: 2px;
-  color: #9CC9E3;
+  color: #F1C40F;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 0;
 }
@@ -134,9 +131,9 @@ hr {
   color: #DCE3E7;
   font-family: 'Roboto', sans-serif;
 }
-.utility-list li.comments {
+/* .utility-list li.comments {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-chat.svg) no-repeat 0 0.1em;
 }
 .utility-list li.date {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-calendar.svg) no-repeat 0 0.1em;
-}
+} */

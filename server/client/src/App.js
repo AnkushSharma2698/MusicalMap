@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 //Import Routing Dependencies
-import { Route, Switch } from 'react-router-dom'
-
+import { Route, Switch } from "react-router-dom";
 
 //IMPORTING Components
-import HomePage from './components/HomePage/HomePage';
-import Dashboard from './components/Dashboard/Dashboard';
+import HomePage from "./components/HomePage/HomePage";
+import Dashboard from "./components/Dashboard/Dashboard";
 import ArtistPage from "./components/ArtistPage/ArtistPage";
+import playButton from "./components/PlayButton/PlayButton";
 
 //import SpotifyWebApi from 'spotify-web-api-js';
 //const spotifyApi = new SpotifyWebApi();
@@ -16,13 +16,14 @@ import ArtistPage from "./components/ArtistPage/ArtistPage";
 
 class App extends Component {
   render() {
-    return(
+    return (
       <Switch>
-        <Route exact path='/' component={HomePage}/>
-        <Route exact path='/Dashboard' component={Dashboard}/>
-        <Route exact path='/ArtistPage' component={ArtistPage}/>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/Dashboard" component={Dashboard} />
+        <Route exact path="/ArtistPage" component={ArtistPage} />
+        <Route exact path="/play" component={playButton} />
       </Switch>
-    )
+    );
   }
 }
 
