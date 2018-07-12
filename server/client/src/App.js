@@ -9,7 +9,7 @@ import particlesOptions from './components/particlesOptions/particlesOptions'
 //IMPORTING Components
 import HomePage from './components/HomePage/HomePage';
 import Dashboard from './components/Dashboard/Dashboard';
-
+import ArtistPage from './components/ArtistPage/ArtistPage';
 //import SpotifyWebApi from 'spotify-web-api-js';
 //const spotifyApi = new SpotifyWebApi();
 
@@ -70,6 +70,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={HomePage}/>
           <Route exact path='/Dashboard' component={Dashboard}/>
+          <Route exact path='/Artist' component={ArtistPage} />
         </Switch>
       </div>
     )
