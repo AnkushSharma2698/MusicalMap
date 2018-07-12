@@ -149,3 +149,9 @@ input {
         padding-right: 4rem;
     }
 }
+
+/* //position the footer at the bottom of the screen */
+footer {
+  position:fixed;
+  bottom:0;
+}
