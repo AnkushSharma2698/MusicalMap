@@ -7,7 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import Dashboard from "./components/Dashboard/Dashboard";
 import ArtistPage from "./components/ArtistPage/ArtistPage";
-import playButton from "./components/PlayButton/PlayButton";
+import Play from "./components/PlayButton/Play";
 
 //import SpotifyWebApi from 'spotify-web-api-js';
 //const spotifyApi = new SpotifyWebApi();
@@ -21,7 +21,7 @@ class App extends Component {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/Dashboard" component={Dashboard} />
         <Route exact path="/ArtistPage" component={ArtistPage} />
-        <Route exact path="/play" component={playButton} />
+        <Route exact path="/play" component={Play} />
       </Switch>
     );
   }
