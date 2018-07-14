@@ -9,8 +9,6 @@ import {Link} from 'react-router-dom';
 
 //Import Axios
 import axios from 'axios';
-//Import queryString
-import queryString from 'query-string';
 
 import NavBar from '../../NavBar/NavBar';
 
@@ -38,7 +36,8 @@ class Dashboard extends Component {
     this.state = {
       inputState:'',
       artistId:'',
-      access__Token:''
+      access__Token:'',
+      topArtists:[]
     }
   }
 
@@ -46,8 +45,11 @@ class Dashboard extends Component {
   componentWillMount() {
     spotifyApi.getMyTopArtists()
       .then((response) => {
-        response.items.map(item => console.log(item.name))
+        console.log(response)
+        response.items.map(item => this.setState({topArtists:this.state.topArtists.concat([item.name+','])}))
+        //
       })
+
   }
 
   getHashParams() {
@@ -86,6 +88,20 @@ class Dashboard extends Component {
     this.setState({inputState:event.target.value});
   }
 
+  getTheID = (getHashParams)=> {
+    let parsed=this.getHashParams();
+    let accessToken = parsed.access_token;
+    //give the state access to the accessToken
+
+    axios.get(`${spotifySearchURL}${this.state.inputState}&type=artist&access_token=${accessToken}`)
+      .then((response)=> {
+        return(
+          this.props.getArtistId(response.data.artists.items[0].id)
+        )
+      })
+  }
+
+
 
 
   render() {
@@ -108,7 +124,7 @@ class Dashboard extends Component {
           <Link
             to =
             {{pathname:'/ArtistPage',
-              hash:`#${this.getHashParams().access_token}`
+              hash:`access_token=${this.getHashParams().access_token}&artist_name=${this.state.inputState}`
             }}
             className='f6 grow link dim ph3 pv2 mb2 dib white w-100 submit'
             onClick={()=>this.searchSportifyArtists()}>Submit</Link>
@@ -116,12 +132,10 @@ class Dashboard extends Component {
 
         {/* /=========TOP ARTISTS CARD=========/ */}
         <article className="center mw5 mw6-ns hidden ba mv4">
-          <h1 className="f4 white mv0 pv2 ph3">Top Artists</h1>
+          <h1 className="f4 white mv0 pv2 ph3">Your Top Artists</h1>
           <div className="pa3 bt">
             <p className="f6 f5-ns lh-copy measure mv0" id="ArtistList">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-              tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-              vero eos et accusam et justo duo dolores et ea rebum.
+              {this.state.topArtists}
             </p>
           </div>
         </article>
@@ -129,13 +143,13 @@ class Dashboard extends Component {
 
         {/* =======ADDING SOCIALS ON THE BOTTOM OF THE PAGE=========== */}
         <footer className="pv4 ph3 ph5-ns tc">
-          <a className="link dim gray dib h2 w2 br-100 mr3 pa2 bg-near-white ba b--black-10" href="#" title="">
+          <a className="link dim gray dib h2 w2 br-100 mr3 pa2 bg-near-white ba b--black-10" href="#as" title="">
             <svg data-icon="facebook" viewBox="0 0 32 32" style={mediaStyle}>
               <title>facebook icon</title>
               <path d="M8 12 L13 12 L13 8 C13 2 17 1 24 2 L24 7 C20 7 19 7 19 10 L19 12 L24 12 L23 18 L19 18 L19 30 L13 30 L13 18 L8 18 z"></path>
             </svg>
           </a>
-          <a className="link dim gray dib h2 w2 br-100 mr3 pa2 bg-near-white ba b--black-10" href="#" title="">
+          <a className="link dim gray dib h2 w2 br-100 mr3 pa2 bg-near-white ba b--black-10" href="#asd" title="">
             <svg data-icon="twitter" viewBox="0 0 32 32" style={mediaStyle}>
               <title>twitter icon</title>
               <path d="M2 4 C6 8 10 12 15 11 A6 6 0 0 1 22 4 A6 6 0 0 1 26 6 A8 8 0 0 0 31 4 A8 8 0 0 1 28 8 A8 8 0 0 0 32 7 A8 8 0 0 1 28 11 A18 18 0 0 1 10 30 A18 18 0 0 1 0 27 A12 12 0 0 0 8 24 A8 8 0 0 1 3 20 A8 8 0 0 0 6 19.5 A8 8 0 0 1 0 12 A8 8 0 0 0 3 13 A8 8 0 0 1 2 4"></path>

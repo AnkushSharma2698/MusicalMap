@@ -1,13 +1,39 @@
 import React, {Component} from 'react';
 import './css/ArtistPage.css'
+import axios from 'axios';
 
 // ===== Implement an artist card with its respective css component === //
 
 class ArtistPage extends Component {
   constructor(props) {
     super(props);
-    console.log('In ArtistPage: ',this.props.artistId)
+    console.log('In ArtistPage: ',this.props.inputState)
   }
+
+  componentWillMount() {
+    //get access tokens
+    let accessToken= this.getHashParams().access_token;
+    let artistName= this.getHashParams().artist_name;
+
+
+    //get artist name
+  }
+
+//Used to Parse the parameters
+  getHashParams() {
+    var hashParams = {};
+    var e, r = /([^&;=]+)=?([^&;]*)/g,
+        q = window.location.hash.substring(1);
+    e = r.exec(q)
+    while (e) {
+       hashParams[e[1]] = decodeURIComponent(e[2]);
+       e = r.exec(q);
+    }
+    return hashParams;
+  }
+
+
+
   render() {
     return (
       <div className="blog-card spring-fever">
