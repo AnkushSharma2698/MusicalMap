@@ -4,6 +4,10 @@ import './css/ArtistPage.css'
 // ===== Implement an artist card with its respective css component === //
 
 class ArtistPage extends Component {
+  constructor(props) {
+    super(props);
+    console.log('In ArtistPage: ',this.props.artistId)
+  }
   render() {
     return (
       <div className="blog-card spring-fever">

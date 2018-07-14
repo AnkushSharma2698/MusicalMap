@@ -9,10 +9,11 @@
   background: transparent;
   border: none;
   outline: none;
-  padding: 5px;
+  padding: 1px;
   font-size: 24px;
   color: #fff;
   border-bottom: 3px solid #F1c40f;
+
 }
 /* //Create a hover glow for the search box here */
 /* normal button style */
@@ -54,9 +55,17 @@ input {
   width:100%;
 }
 
+/* //=======Submit Button=====// */
+.buttondiv {
+  padding-top: 20px;
+}
 
+.submit {
+  border-radius: 10% /50%;
+  background: #F1c40f;
+}
 
-/* /=======NAVBAR CSS========/ */
+/* /=======NAVBAR CSS========/ as*/
 
 /* //=====TOP ARTIST CARD CSS=======// */
 article {

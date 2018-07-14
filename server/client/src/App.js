@@ -14,12 +14,29 @@ import ArtistPage from "./components/ArtistPage/ArtistPage";
 //=====================================
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      artistId:''
+    }
+  }
+
+//Set the state to get the Id of the currently search artist
+  sendArtistIdtoPage = (id) => {
+    return (
+      this.setState({artistId:id}),
+      console.log('This is the Artist id in App.js',this.state.artistId)
+    )
+  }
+
+
+
   render() {
     return(
       <Switch>
         <Route exact path='/' component={HomePage}/>
-        <Route exact path='/Dashboard' component={Dashboard}/>
-        <Route exact path='/ArtistPage' component={ArtistPage}/>
+        <Route exact path='/Dashboard' render={()=><Dashboard getArtistId={this.sendArtistIdtoPage}/>}/>
+        <Route exact path='/ArtistPage' render={()=><ArtistPage  artistId= {this.state.artistId}/> } />
       </Switch>
     )
   }
