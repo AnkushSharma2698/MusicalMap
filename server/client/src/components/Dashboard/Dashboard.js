@@ -5,6 +5,8 @@ import './Dashboard.css';
 import Particles from 'react-particles-js';
 import particlesOptions from '../../Background/particlesOptions';
 
+import {Link} from 'react-router-dom';
+
 //Import Axios
 import axios from 'axios';
 //Import queryString
@@ -38,6 +40,14 @@ class Dashboard extends Component {
       artistId:'',
       access__Token:''
     }
+  }
+
+  //Get the users top artists
+  componentWillMount() {
+    spotifyApi.getMyTopArtists()
+      .then((response) => {
+        response.items.map(item => console.log(item.name))
+      })
   }
 
   getHashParams() {
@@ -77,6 +87,7 @@ class Dashboard extends Component {
   }
 
 
+
   render() {
     return(
       <div className='dashboard flex'>
@@ -94,7 +105,13 @@ class Dashboard extends Component {
         </div>
         {/* //==========Submit Button========// */}
         <div className='ph3 buttondiv'>
-          <a className='f6 grow link dim ph3 pv2 mb2 dib white w-100 submit' onClick={()=>this.searchSportifyArtists()}>Submit</a>
+          <Link
+            to =
+            {{pathname:'/ArtistPage',
+              hash:`#${this.getHashParams().access_token}`
+            }}
+            className='f6 grow link dim ph3 pv2 mb2 dib white w-100 submit'
+            onClick={()=>this.searchSportifyArtists()}>Submit</Link>
         </div>
 
         {/* /=========TOP ARTISTS CARD=========/ */}
