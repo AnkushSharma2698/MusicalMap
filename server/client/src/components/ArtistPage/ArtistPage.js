@@ -12,7 +12,8 @@ class ArtistPage extends Component {
     super(props);
     this.state = {
       imageLink: "",
-      artist_Name: ""
+      artist_Name: "",
+      genres: []
     };
     console.log("In ArtistPage: ", this.props.inputState);
   }
@@ -21,6 +22,8 @@ class ArtistPage extends Component {
     //get access tokens
     let accessToken = this.getHashParams().access_token;
     let artistName = this.getHashParams().artist_name;
+
+    // === GRABS the artist name and image link ====
     axios
       .get(
         `${spotifySearchURL}${artistName}&type=artist&access_token=${accessToken}`
@@ -31,15 +34,10 @@ class ArtistPage extends Component {
         this.setState({
           imageLink: response.data.artists.items[0].images[0].url,
           artist_Name: response.data.artists.items[0].name
-        });
-        //console.log(response.data.artists);
-        //console.log(response.data.artists.items.images[0].url);
-        //this.setState({imageLink: response.})
-        // alert(`You searched for ${response.data.artists.items[0].name} and the
-        // artist ID is ${response.data.artists.items[0].id}`);
-        // //Sending the Artist Id back to the App Component;
-        // this.props.getArtistId(response.data.artists.items[0].id);
+        }).catch(error => console.log(error));
       });
+
+    // === grabs the similar artists related to the artist that is searched === 
 
     //get artist name
   }
@@ -68,11 +66,9 @@ class ArtistPage extends Component {
         />
         <img src={this.state.imageLink} alt="" />
         <div className="title-content">
-          <h3>{this.state.artist_Name}</h3>
+          <h2>{this.state.artist_Name}</h2>
           <hr />
-          <div className="intro">
-            Yllamco laboris nisi ut aliquip ex ea commodo.
-          </div>
+          <div className="intro" />
         </div>
         {/* /.title-content */}
         <div className="card-info">
@@ -81,12 +77,7 @@ class ArtistPage extends Component {
           minim.
         </div>
         {/* /.card-info */}
-        <div className="utility-info">
-          <ul className="utility-list">
-            <li className="comments">12</li>
-            <li className="date">03.12.2015</li>
-          </ul>
-        </div>
+        <div className="utility-info" />
         {/* /.utility-info */}
         {/* overlays */}
         <div className="gradient-overlay" />
