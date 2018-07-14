@@ -1,3 +1,6 @@
+//const keys = require("../../config/keys");
+
+
 /**
  * This is an example of a basic node.js script that performs
  * the Authorization Code oAuth2 flow to authenticate against
@@ -7,22 +10,17 @@
  * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
  */
 
-var express = require("express"); // Express web server framework
-var request = require("request"); // "Request" library
-var cors = require("cors");
-var querystring = require("querystring");
-var cookieParser = require("cookie-parser");
-const keys = require("../../config/keys");
-var client_id = keys.spotifyClientID;
-var client_secret = keys.spotifyClientSecret; // Your secret
-const clientDomain = "http://localhost:5000";
-const domain = "http://localhost:3000";
-var redirect_uri = `${domain}/Dashboard`; // Your redirect uri
-const mongoose = require('mongoose');
-require("./models/user");
-const User = mongoose.model("users");
+var express = require('express'); // Express web server framework
+var request = require('request'); // "Request" library
+var querystring = require('querystring');
+var cookieParser = require('cookie-parser');
 
-mongoose.connect(keys.mongoURI);
+const keys = require("../../config/keys");
+
+var client_id = keys.spotifyClientID; // Your client id
+var client_secret = keys.spotifyClientSecret; // Your secret
+var redirect_uri = 'http://localhost:8888/callback'; // Or Your redirect uri
+
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -106,17 +104,6 @@ app.get('/callback', function(req, res) {
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
           console.log(body);
-          User.findOne({ spotifyId: body.id }).then(existingUser => {
-            if (!existingUser) {
-              // make new record
-            new User({
-              spotifyId: body.id,
-              count: 0
-            })
-              .save();
-            }
-          });
-
         });
 
         // we can also pass the token to the browser to make requests from there
@@ -126,7 +113,7 @@ app.get('/callback', function(req, res) {
             refresh_token: refresh_token
           }));
       } else {
-        res.redirect('/Dashboard' +
+        res.redirect('/#' +
           querystring.stringify({
             error: 'invalid_token'
           }));
