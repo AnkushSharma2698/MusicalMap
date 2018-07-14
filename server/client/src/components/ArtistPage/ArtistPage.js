@@ -11,7 +11,8 @@ class ArtistPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageLink: ""
+      imageLink: "",
+      artist_Name: ""
     };
     console.log("In ArtistPage: ", this.props.inputState);
   }
@@ -26,9 +27,10 @@ class ArtistPage extends Component {
       )
       .then(response => {
         console.log(response);
-        console.log(response.data.artists.items[0].images[0].url);
+        console.log(response.data.artists.items[0].name);
         this.setState({
-          imageLink: response.data.artists.items[0].images[0].url
+          imageLink: response.data.artists.items[0].images[0].url,
+          artist_Name: response.data.artists.items[0].name
         });
         //console.log(response.data.artists);
         //console.log(response.data.artists.items.images[0].url);
@@ -66,7 +68,7 @@ class ArtistPage extends Component {
         />
         <img src={this.state.imageLink} alt="" />
         <div className="title-content">
-          <h3>SPRING FEVER</h3>
+          <h3>{this.state.artist_Name}</h3>
           <hr />
           <div className="intro">
             Yllamco laboris nisi ut aliquip ex ea commodo.
