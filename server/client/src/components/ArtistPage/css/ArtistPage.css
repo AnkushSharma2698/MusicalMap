@@ -1,9 +1,17 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+
+.flex {
+  /* justify-content: center;
+  align-items: center; */
+  height:100vh;
 }
 
 
@@ -20,7 +28,6 @@
   text-align: center;
 }
 
-
 img {
   height: 100%;
   object-fit: cover;
@@ -28,25 +35,32 @@ img {
 
 .blog-card .color-overlay {
   /* Rectangle 11: */
-  background: rgba(84, 104, 110, 0.4);
+  /*background: rgba(0, 0, 0, 0.5);*/
+  /*rgba(84, 104, 110, 0.4); */
   width: 350px;
   height: 500px;
   position: absolute;
   z-index: 10;
   top: 0;
   left: 0;
-  transition: background 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+  transition: background 0.5s cubic-bezier(0.33, 0.66, 0.66, 1);
 }
 .blog-card .gradient-overlay {
   /* bg-gradient: */
-  background-image: -webkit-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
-  background-image: -moz-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
+  background-image: -webkit-linear-gradient(
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 21%
+  );
+  background-image: -moz-linear-gradient(
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 21%
+  );
   background-image: -o-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
   background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
   width: 350px;
   height: 500px;
   position: absolute;
-  top: 350px;
+ /* top: 350px; */
   left: 0;
   z-index: 15;
 }
@@ -54,9 +68,9 @@ img {
   opacity: 1;
   bottom: 120px;
 }
-.blog-card:hover .color-overlay {
-  background: rgba(84, 104, 110, 0.8);
-}
+/* .blog-card:hover .color-overlay {
+  background: rgba(255, 24, 110, 0.8); 
+} */
 
 .title-content {
   text-align: center;
@@ -72,8 +86,8 @@ h2 {
   font-size: 28px;
   font-weight: 800;
   letter-spacing: 2px;
-  color: #F1C40F;
-  font-family: 'Roboto', sans-serif;
+  color: #f1c40f;
+  font-family: "Roboto", sans-serif;
   margin-bottom: 0;
 }
 
@@ -82,27 +96,29 @@ hr {
   height: 3px;
   margin: 20px auto;
   border: 0;
-  background: #D0BB57;
+  background: #d0bb57;
 }
 
 .followers {
   font-size: 18px;
-  font-weight: 300;
-  font-family: 'Roboto', sans-serif;
-  color: #D0BB57;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  color: white;
   margin-bottom: 0;
-
 }
-
 
 .intro {
   width: 170px;
   margin: 0 auto;
-  color: #DCE3E7;
-  font-family: 'Droid Serif', serif;
+  color: #dce3e7;
+  font-family: "Droid Serif", serif;
   font-size: 13px;
   font-style: italic;
   line-height: 18px;
+}
+
+.little-header {
+  color: #d0bb57;
 }
 
 .card-info {
@@ -112,8 +128,8 @@ hr {
   left: 0;
   margin: 0 auto;
   padding: 0 50px;
-  color: #DCE3E7;
-  font-family: 'Droid Serif', serif;
+  color: #dce3e7;
+  font-family: "Droid Serif", serif;
   font-style: 16px;
   line-height: 24px;
   z-index: 20;
@@ -138,12 +154,14 @@ hr {
   margin: 0 15px 0 0;
   padding: 0 0 0 22px;
   display: inline-block;
-  color: #DCE3E7;
-  font-family: 'Roboto', sans-serif;
+  color: #dce3e7;
+  font-family: "Roboto", sans-serif;
 }
 .utility-list li.comments {
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-chat.svg) no-repeat 0 0.1em;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-chat.svg)
+    no-repeat 0 0.1em;
 }
 .utility-list li.date {
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-calendar.svg) no-repeat 0 0.1em;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-calendar.svg)
+    no-repeat 0 0.1em;
 }

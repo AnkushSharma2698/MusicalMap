@@ -4,6 +4,7 @@ import axios from "axios";
 import { spotifySearchURL } from "../../SpotifyConstants/SpotifyConstants";
 import Particles from "react-particles-js";
 import particlesOptions from "../../Background/particlesOptions";
+import Tilt from "react-tilt";
 
 // ===== Implement an artist card with its respective css component === //
 
@@ -13,7 +14,7 @@ class ArtistPage extends Component {
     this.state = {
       imageLink: "",
       artist_Name: "",
-      genres: [],
+      genres: "",
       followers: ""
     };
     console.log("In ArtistPage: ", this.props.inputState);
@@ -32,12 +33,15 @@ class ArtistPage extends Component {
       .then(response => {
         console.log(response);
         console.log(response.data.artists.items[0].name);
+        let genreArray = response.data.artists.items[0].genres;
+
         this.setState({
           imageLink: response.data.artists.items[0].images[0].url,
           artist_Name: response.data.artists.items[0].name,
-          followers: response.data.artists.items[0].followers.total
+          followers: response.data.artists.items[0].followers.total,
+          genres: genreArray.join()
         });
-        console.log(this.state.followers);
+        console.log(this.state.genres);
       })
       .catch(error => {
         console.log(error);
@@ -47,6 +51,18 @@ class ArtistPage extends Component {
 
     //get artist name
   }
+
+  numberWithCommas = x => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  checkGenres = s => {
+    if (s != "") {
+      return s;
+    } else {
+      return "No Genres!";
+    }
+  };
 
   //Used to Parse the parameters
   getHashParams() {
@@ -64,31 +80,39 @@ class ArtistPage extends Component {
 
   render() {
     return (
-      <div className="blog-card spring-fever">
+      <div className='flex'>
         <Particles
           className="particles"
           id="particlesOptions"
           params={particlesOptions}
         />
-        <img src={this.state.imageLink} alt="" />
-        <div className="title-content">
-          <h2>{this.state.artist_Name}</h2>
-          <hr />
-          <div className="intro" />
+        <Tilt className="Tilt  gay" options={{ max : 10 }} style={{  }} >
+        <div className="blog-card spring-fever tilt-inner">
+          <img src={this.state.imageLink} alt="" />
+          <div className="title-content">
+            <h2>{this.state.artist_Name}</h2>
+            <hr />
+            <div className="intro" />
+          </div>
+          {/* /.title-content */}
+          <div className="card-info">
+            <h3 className="followers">
+              <span className="little-header">Followers:</span>{" "}
+              {this.numberWithCommas(this.state.followers)}
+            </h3>
+            <h3 className="followers">
+              <span className="little-header">Genres:</span>{" "}
+              {this.checkGenres(this.state.genres)}
+            </h3>
+          </div>
+          {/* /.card-info */}
+          <div className="utility-info" />
+          {/* /.utility-info */}
+          {/* overlays */}
+          <div className="gradient-overlay" />
+          <div className="color-overlay" />
         </div>
-        {/* /.title-content */}
-        <div className="card-info">
-          <h3 className="followers">Followers: {this.state.followers}</h3>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim.
-        </div>
-        {/* /.card-info */}
-        <div className="utility-info" />
-        {/* /.utility-info */}
-        {/* overlays */}
-        <div className="gradient-overlay" />
-        <div className="color-overlay" />
+      </Tilt>
       </div>
     );
   }
