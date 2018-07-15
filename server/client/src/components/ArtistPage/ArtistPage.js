@@ -13,7 +13,8 @@ class ArtistPage extends Component {
     this.state = {
       imageLink: "",
       artist_Name: "",
-      genres: []
+      genres: [],
+      followers: ""
     };
     console.log("In ArtistPage: ", this.props.inputState);
   }
@@ -33,11 +34,16 @@ class ArtistPage extends Component {
         console.log(response.data.artists.items[0].name);
         this.setState({
           imageLink: response.data.artists.items[0].images[0].url,
-          artist_Name: response.data.artists.items[0].name
-        }).catch(error => console.log(error));
+          artist_Name: response.data.artists.items[0].name,
+          followers: response.data.artists.items[0].followers.total
+        });
+        console.log(this.state.followers);
+      })
+      .catch(error => {
+        console.log(error);
       });
 
-    // === grabs the similar artists related to the artist that is searched === 
+    // === grabs the similar artists related to the artist that is searched ===
 
     //get artist name
   }
@@ -72,6 +78,7 @@ class ArtistPage extends Component {
         </div>
         {/* /.title-content */}
         <div className="card-info">
+          <h3 className="followers">Followers: {this.state.followers}</h3>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim.

@@ -85,6 +85,16 @@ hr {
   background: #D0BB57;
 }
 
+.followers {
+  font-size: 18px;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  color: #D0BB57;
+  margin-bottom: 0;
+
+}
+
+
 .intro {
   width: 170px;
   margin: 0 auto;
