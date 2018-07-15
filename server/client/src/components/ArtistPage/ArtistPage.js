@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import "./css/ArtistPage.css";
 import axios from "axios";
-import { spotifySearchURL } from "../../SpotifyConstants/SpotifyConstants";
+import {
+  spotifySearchURL,
+  spotifyArtistURL,
+  TopSongs
+} from "../../SpotifyConstants/SpotifyConstants";
 import Particles from "react-particles-js";
 import particlesOptions from "../../Background/particlesOptions";
 import Tilt from "react-tilt";
@@ -15,7 +19,8 @@ class ArtistPage extends Component {
       imageLink: "",
       artist_Name: "",
       genres: "",
-      followers: ""
+      followers: "",
+      artistId: ""
     };
     console.log("In ArtistPage: ", this.props.inputState);
   }
@@ -24,30 +29,45 @@ class ArtistPage extends Component {
     //get access tokens
     let accessToken = this.getHashParams().access_token;
     let artistName = this.getHashParams().artist_name;
-
+    var ArtID = "";
     // === GRABS the artist name and image link ====
     axios
       .get(
         `${spotifySearchURL}${artistName}&type=artist&access_token=${accessToken}`
       )
       .then(response => {
-        console.log(response);
-        console.log(response.data.artists.items[0].name);
         let genreArray = response.data.artists.items[0].genres;
+        ArtID = response.data.artists.items[0].id;
+        console.log(response);
 
         this.setState({
           imageLink: response.data.artists.items[0].images[0].url,
           artist_Name: response.data.artists.items[0].name,
           followers: response.data.artists.items[0].followers.total,
-          genres: genreArray.join()
+          genres: genreArray.join(),
+          artistId: response.data.artists.items[0].id
         });
-        console.log(this.state.genres);
+        console.log(ArtID);
       })
       .catch(error => {
         console.log(error);
       });
 
     // === grabs the similar artists related to the artist that is searched ===
+    // axios.get(GET https://api.spotify.com/v1/artists/{id}/top-tracks
+    setTimeout(
+      () => {
+        console.log(ArtID);
+        console.log(accessToken);
+
+        fetch(
+          `https://api.spotify.com/v1/artists/${ArtID}/top-tracks?country=CA`,
+          {
+            headers: { Authorization: "Bearer " + accessToken }
+          }
+        ).then(response => response.json()).then(data => console.log(data));
+        //
+      },1);
 
     //get artist name
   }
@@ -57,7 +77,7 @@ class ArtistPage extends Component {
   };
 
   checkGenres = s => {
-    if (s != "") {
+    if (s !== "") {
       return s;
     } else {
       return "No Genres!";
@@ -80,14 +100,13 @@ class ArtistPage extends Component {
 
   render() {
     return (
-      <div className='flex'>
+      <div>
         <Particles
           className="particles"
           id="particlesOptions"
           params={particlesOptions}
         />
-        <Tilt className="Tilt  gay" options={{ max : 10 }} style={{  }} >
-        <div className="blog-card spring-fever tilt-inner">
+        <div className="blog-card spring-fever">
           <img src={this.state.imageLink} alt="" />
           <div className="title-content">
             <h2>{this.state.artist_Name}</h2>
@@ -112,7 +131,6 @@ class ArtistPage extends Component {
           <div className="gradient-overlay" />
           <div className="color-overlay" />
         </div>
-      </Tilt>
       </div>
     );
   }
