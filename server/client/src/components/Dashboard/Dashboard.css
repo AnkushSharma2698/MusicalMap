@@ -12,7 +12,7 @@
   padding: 1px;
   font-size: 24px;
   color: #fff;
-  border-bottom: 3px solid #F1c40f;
+  border-bottom: 3px solid #513438;
 
 }
 /* //Create a hover glow for the search box here */
@@ -62,14 +62,14 @@ input {
 
 .submit {
   border-radius: 10% /50%;
-  background: #F1c40f;
+  background: #513438;
 }
 
 /* /=======NAVBAR CSS========/ as*/
 
 /* //=====TOP ARTIST CARD CSS=======// */
 article {
-  border-color: #F1c40f;
+  border-color: #513438;
   border-radius: 10% /50%;
 }
 

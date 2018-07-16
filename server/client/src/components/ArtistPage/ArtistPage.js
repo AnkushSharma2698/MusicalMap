@@ -22,7 +22,6 @@ class ArtistPage extends Component {
       followers: "",
       artistId: ""
     };
-    console.log("In ArtistPage: ", this.props.inputState);
   }
 
   componentWillMount() {
@@ -67,7 +66,7 @@ class ArtistPage extends Component {
           }
         ).then(response => response.json()).then(data => console.log(data));
         //
-      },1);
+      },100);
 
     //get artist name
   }

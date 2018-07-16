@@ -23,10 +23,7 @@ class App extends Component {
 
 //Set the state to get the Id of the currently search artist
   sendArtistIdtoPage = (id) => {
-    return (
-      this.setState({artistId:id}),
-      console.log('This is the Artist id in App.js',this.state.artistId)
-    )
+    return this.setState({artistId:id})
   }
 
   render() {
