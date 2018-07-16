@@ -105,6 +105,27 @@ class ArtistPage extends Component {
     return hashParams;
   }
 
+  showTracks() {
+    let results=[]
+    this.state.songURL.map(song => {
+      results.push(
+      <div className="flex flexy">
+        <ReactPlayer
+          className="reactPlayer"
+          url={song}
+          width={"inherit"}
+          height={80}
+          style={{ backgroundColor: "#27ae60" }}
+          playing={false}
+          controls={true}
+        />
+      </div>
+      )
+    })
+    return results
+
+  }
+
   render() {
     return (
       <div className='flex parent'>
@@ -141,17 +162,7 @@ class ArtistPage extends Component {
           <div className="color-overlay" />
         </div>
         {/* //REACT PLAYER STARTS HERE ++++++++ */}
-        <div className="flex flexy">
-          <ReactPlayer
-            className="reactPlayer"
-            url={this.state.songURL[0]}
-            width={"inherit"}
-            height={80}
-            style={{ backgroundColor: "#27ae60" }}
-            playing={false}
-            controls={true}
-          />
-        </div>
+        {this.showTracks()}
       </div>
     );
   }

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./Profile.css";
+import React, {Component} from 'react';
+import './Profile.css'
 //For making request to Spotify api
 import axios from "axios";
 //Import Spotify url constants
@@ -13,43 +13,44 @@ import particlesOptions from "../../Background/particlesOptions";
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
 
-class Profile extends Component {
+class Profile extends Component{
   constructor() {
     super();
     if (this.getHashParams().access_token) {
       spotifyApi.setAccessToken(this.getHashParams().access_token);
     }
-    this.state = {
-      imageUrl: "",
-      userName: "",
-      userCountry: "",
-      followers: "",
-      profileURL: ""
-    };
+    this.state= {
+      imageUrl:'',
+      userName:'',
+      userCountry:'',
+      followers:'',
+      profileURL:''
+
+    }
   }
 
   componentWillMount() {
-    spotifyApi.getMe().then(response => {
-      console.log(response);
-      if (response.images[0] === null || response.display_name === null) {
+    spotifyApi.getMe().then(response=> {
+      console.log(response)
+      if (response.images[0]===null || response.display_name===null) {
         this.setState({
-          imageUrl:
-            "https://images.wallpaperscraft.com/image/man_profile_silhouette_circle_118321_3840x2400.jpg",
-          userName: response.id,
-          followers: response.followers.total,
-          userCountry: response.country,
-          profileURL: response.external_urls.spotify
-        });
-      } else {
+        imageUrl:'https://images.wallpaperscraft.com/image/man_profile_silhouette_circle_118321_3840x2400.jpg',
+        userName:response.id,
+        followers:response.followers.total,
+        userCountry:response.country,
+        profileURL:response.external_urls.spotify
+        })
+      }else {
         this.setState({
-          imageUrl: response.images[0].url,
-          userName: response.display_name,
-          followers: response.followers.total,
-          userCountry: response.country,
-          profileURL: response.external_urls.spotify
-        });
+          imageUrl:response.images[0].url,
+          userName:response.display_name,
+          followers:response.followers.total,
+          userCountry:response.country,
+          profileURL:response.external_urls.spotify
+        })
       }
-    });
+
+    })
   }
 
   //Function to get access token from the hash
@@ -68,7 +69,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="flex profile">
+      <div className='flex profile'>
         {/* //Place Particles Here */}
         <Particles
           className="particles"
@@ -103,16 +104,11 @@ class Profile extends Component {
           <div className="gradient-overlay" />
           <div className="color-overlay" />
         </div>
-        <div className="ph3">
-          <a
-            class="f6 grow no-underline br-pill ba bw2 ph3 pv2 mb2 dib profbutton"
-            href={this.state.profileURL}
-          >
-            Access on Spotify
-          </a>
+        <div className='ph3'>
+          <a class="f6 grow no-underline br-pill ba bw2 ph3 pv2 mb2 dib profbutton" href={this.state.profileURL}>Access on Spotify</a>
         </div>
       </div>
-    );
+    )
   }
 }
 
