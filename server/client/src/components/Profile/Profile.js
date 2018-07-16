@@ -32,14 +32,22 @@ class Profile extends Component{
   componentWillMount() {
     spotifyApi.getMe().then(response=> {
       console.log(response)
-      this.setState({
-        imageUrl:response.images[0].url,
+      if (response.images[0]===null) {
+        imageUrl:'https://images.wallpaperscraft.com/image/man_profile_silhouette_circle_118321_3840x2400.jpg',
         userName:response.display_name,
         followers:response.followers.total,
         userCountry:response.country,
         profileURL:response.external_urls.spotify
+      }else {
+        this.setState({
+          imageUrl:response.images[0].url,
+          userName:response.display_name,
+          followers:response.followers.total,
+          userCountry:response.country,
+          profileURL:response.external_urls.spotify
+        })
+      }
 
-      })
     })
   }
 
@@ -69,7 +77,7 @@ class Profile extends Component{
         <h1>Welcome To Your Profile</h1>
         <h4>Hover on Card to View Informatiion About You!</h4>
         {/* =======THE CARD====== */}
-        <div className="blog-card spring-fever card">
+        <div className="blog-cards spring-fever card">
           <img src={this.state.imageUrl} alt="" />
           <div className="title-content">
             <h2>{this.state.userName}</h2>
