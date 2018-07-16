@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import "./css/ArtistPage.css";
 import axios from "axios";
+import ReactPlayer from "react-player";
 import {
   spotifySearchURL,
-  spotifyArtistURL,
   TopSongs
 } from "../../SpotifyConstants/SpotifyConstants";
 import Particles from "react-particles-js";
 import particlesOptions from "../../Background/particlesOptions";
-import Tilt from "react-tilt";
+//import Tilt from "react-tilt";
+import NavBar from "../../NavBar/NavBar";
 
 // ===== Implement an artist card with its respective css component === //
 
@@ -20,7 +21,8 @@ class ArtistPage extends Component {
       artist_Name: "",
       genres: "",
       followers: "",
-      artistId: ""
+      artistId: "",
+      songURL: []
     };
   }
 
@@ -37,7 +39,6 @@ class ArtistPage extends Component {
       .then(response => {
         let genreArray = response.data.artists.items[0].genres;
         ArtID = response.data.artists.items[0].id;
-        console.log(response);
 
         this.setState({
           imageLink: response.data.artists.items[0].images[0].url,
@@ -46,7 +47,6 @@ class ArtistPage extends Component {
           genres: genreArray.join(),
           artistId: response.data.artists.items[0].id
         });
-        console.log(ArtID);
       })
       .catch(error => {
         console.log(error);
@@ -54,19 +54,26 @@ class ArtistPage extends Component {
 
     // === grabs the similar artists related to the artist that is searched ===
     // axios.get(GET https://api.spotify.com/v1/artists/{id}/top-tracks
-    setTimeout(
-      () => {
-        console.log(ArtID);
-        console.log(accessToken);
+    setTimeout(() => {
+      console.log(ArtID);
+      console.log(accessToken);
 
-        fetch(
-          `https://api.spotify.com/v1/artists/${ArtID}/top-tracks?country=CA`,
-          {
-            headers: { Authorization: "Bearer " + accessToken }
+      fetch(`${TopSongs}${ArtID}/top-tracks?country=CA`, {
+        headers: { Authorization: "Bearer " + accessToken }
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          var urlList = [];
+          for (var i = 0; i < 3; i++) {
+            console.log(i);
+            urlList.push(data.tracks[i].preview_url);
           }
-        ).then(response => response.json()).then(data => console.log(data));
-        //
-      },100);
+          this.setState({ songURL: urlList });
+          console.log(this.state.songURL);
+        });
+      //
+    }, 250);
 
     //get artist name
   }
@@ -105,6 +112,8 @@ class ArtistPage extends Component {
           id="particlesOptions"
           params={particlesOptions}
         />
+        <NavBar />
+        
         <div className="blog-card spring-fever">
           <img src={this.state.imageLink} alt="" />
           <div className="title-content">
@@ -129,6 +138,17 @@ class ArtistPage extends Component {
           {/* overlays */}
           <div className="gradient-overlay" />
           <div className="color-overlay" />
+        </div>
+        <div className="flex flexy">
+          <ReactPlayer
+            className="reactPlayer"
+            url={this.state.songURL[0]}
+            width={"inherit"}
+            height={80}
+            style={{ backgroundColor: "#27ae60" }}
+            playing={false}
+            controls={true}
+          />
         </div>
       </div>
     );

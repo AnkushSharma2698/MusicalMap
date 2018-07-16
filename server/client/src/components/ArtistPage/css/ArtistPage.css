@@ -8,6 +8,13 @@
 }
 
 
+
+
+.flexy {
+  overflow:auto;
+  float: right;
+  
+}
 .tr {
   /* justify-content: center;
   align-items: center; */
