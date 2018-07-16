@@ -7,13 +7,16 @@
   padding: 0;
 }
 
-
-
+.parent {
+  justify-content: flex-end;
+}
 
 .flexy {
   overflow:auto;
   float: right;
-  
+  background: green;
+
+
 }
 .tr {
   /* justify-content: center;

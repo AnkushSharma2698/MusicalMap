@@ -107,14 +107,14 @@ class ArtistPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className='flex parent'>
         <Particles
           className="particles"
           id="particlesOptions"
           params={particlesOptions}
         />
-        <NavBar />
-        
+        <NavBar getHashParams={this.getHashParams()} artistName={this.getHashParams().artist_name} />
+
         <div className="blog-card spring-fever">
           <img src={this.state.imageLink} alt="" />
           <div className="title-content">
@@ -140,6 +140,7 @@ class ArtistPage extends Component {
           <div className="gradient-overlay" />
           <div className="color-overlay" />
         </div>
+        {/* //REACT PLAYER STARTS HERE ++++++++ */}
         <div className="flex flexy">
           <ReactPlayer
             className="reactPlayer"
