@@ -10,6 +10,7 @@ import Particles from "react-particles-js";
 import particlesOptions from "../../Background/particlesOptions";
 import Tilt from "react-tilt";
 
+
 // ===== Implement an artist card with its respective css component === //
 
 class ArtistPage extends Component {
