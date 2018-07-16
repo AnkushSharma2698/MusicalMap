@@ -53,6 +53,18 @@ class Dashboard extends Component {
     });
   }
 
+  enterFunc=(event)=> {
+    if (event.which===13) {
+      this.searchSportifyArtists(event);
+    }
+
+  }
+
+  //Listen for global enter Express
+  componentDidMount() {
+    document.addEventListener("keydown", this.enterFunc, false);
+  }
+
   getHashParams() {
     var hashParams = {};
     var e,
@@ -65,6 +77,7 @@ class Dashboard extends Component {
     }
     return hashParams;
   }
+
 
   searchSportifyArtists = (event, getHashParams) => {
     let parsed = this.getHashParams();
@@ -119,7 +132,7 @@ class Dashboard extends Component {
           params={particlesOptions}
         />
         {/* ====Navbar goes here ===== */}
-        <NavBar />
+        <NavBar getHashParams={this.getHashParams()} artistName={this.state.inputState} />
         <div>
           <h1>Find Your Favorite Artists!</h1>
         </div>
@@ -142,7 +155,6 @@ class Dashboard extends Component {
               }&artist_name=${this.state.inputState}`
             }}
             className="f6 grow link dim ph3 pv2 mb2 dib white w-100 submit"
-            onClick={() => this.searchSportifyArtists()}
           >
             Submit
           </Link>

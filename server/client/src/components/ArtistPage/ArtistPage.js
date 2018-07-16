@@ -11,6 +11,7 @@ import particlesOptions from "../../Background/particlesOptions";
 //import Tilt from "react-tilt";
 import NavBar from "../../NavBar/NavBar";
 
+
 // ===== Implement an artist card with its respective css component === //
 
 class ArtistPage extends Component {
