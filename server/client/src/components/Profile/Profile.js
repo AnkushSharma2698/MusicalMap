@@ -33,11 +33,13 @@ class Profile extends Component{
     spotifyApi.getMe().then(response=> {
       console.log(response)
       if (response.images[0]===null) {
+        this.setState({
         imageUrl:'https://images.wallpaperscraft.com/image/man_profile_silhouette_circle_118321_3840x2400.jpg',
         userName:response.display_name,
         followers:response.followers.total,
         userCountry:response.country,
         profileURL:response.external_urls.spotify
+        })
       }else {
         this.setState({
           imageUrl:response.images[0].url,
