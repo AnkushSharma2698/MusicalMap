@@ -25,7 +25,7 @@ const HomePage = () => {
         <a href="http://localhost:8888" class="btn btn-green btn-lg ">
             <button>Login To Spotify</button>
         </a><br/>
-        <a href="/StyledHome" class="btn btn-green btn-lg ">
+        <a href="/About" class="btn btn-green btn-lg ">
             <button>About us</button>
         </a>
       </div>
