@@ -142,6 +142,7 @@ class ArtistPage extends Component {
     for (let k = 0; k < 3; k++) {
       console.log("ARRAY", this.state.AlbumPic[k]);
       results.push(
+
         <div className="flex flexy">
           <Tilt
             className="Tilt options"
@@ -165,6 +166,22 @@ class ArtistPage extends Component {
     }
     return results;
   }
+
+      <div className="flex flexy">
+        <ReactPlayer
+          className="reactPlayer"
+          url={song}
+          width={"inherit"}
+          height={150}
+          style={{ backgroundImage: "url('https://vignette.wikia.nocookie.net/spongebob/images/5/51/A_very_small_picture.jpg/revision/latest?cb=20120913052456')" }}
+          playing={false}
+          controls={true}
+        />
+      </div>
+      )
+    })
+    return results
+
 
   showRelatedArtists() {
     let results = [];

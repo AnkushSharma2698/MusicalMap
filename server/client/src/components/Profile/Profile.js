@@ -5,6 +5,8 @@ import axios from "axios";
 //Import Spotify url constants
 import { spotifySearchURL } from "../../SpotifyConstants/SpotifyConstants";
 
+//import the NAVBAR
+import NavBar from "../../NavBar/NavBar";
 //Import the particles
 import Particles from "react-particles-js";
 import particlesOptions from "../../Background/particlesOptions";
@@ -76,8 +78,9 @@ class Profile extends Component{
           id="particlesOptions"
           params={particlesOptions}
         />
-        <h1>Welcome To Your Profile</h1>
-        <h4>Hover on Card to View Informatiion About You!</h4>
+        <NavBar getHashParams={this.getHashParams()} artistName={this.getHashParams().artist_name}/>
+        {/* <h1>Welcome To Your Profile</h1> */}
+        <h3 id='welcome'>Welcome to Your Profile!</h3>
         {/* =======THE CARD====== */}
         <div className="blog-cards spring-fever card">
           <img src={this.state.imageUrl} alt="" />

@@ -31,7 +31,7 @@
   width: 350px;
   height: 500px;
   position: absolute;
-  top: 58%;
+  top: 59%;
   left: 50%;
   margin: -250px 0 0 -175px;
   overflow: hidden;
@@ -147,6 +147,10 @@ hr {
   z-index: 20;
   opacity: 0;
   transition: bottom 0.3s, opacity 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+#welcome {
+  color: white;
 }
 
 .utility-info {

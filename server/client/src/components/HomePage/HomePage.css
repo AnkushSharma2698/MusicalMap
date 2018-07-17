@@ -5,6 +5,11 @@
   flex-direction: column;
 }
 
+#homefooter {
+    bottom: 0%;
+    position: fixed;
+}
+
 .particles {
   position:fixed;
   top:0;
@@ -14,24 +19,57 @@
   z-index: -1;
 }
 
-.grow {
-  transform: translateZ(0);
-  transition: transform 0.25s ease-out;
-}
-.grow:hover,
-.grow:focus {
-  transform: scale(1.05);
-}
-
-.Title {
-}
-
-.Button {
-
+/* //For the LOGOOOOO */
+.logo {
+  padding-top: 100px;
 }
 
 h1 {
 
   color:white;
   font-weight: 900;
+}
+
+.Button {
+  padding-top: 100px;
+}
+
+/* //button css */
+
+button{
+  background:#513438;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  width:400px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+button:hover{
+  background:#fff;
+  color:#513438;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #513438;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
 }

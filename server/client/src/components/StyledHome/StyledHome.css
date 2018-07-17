@@ -1,0 +1,56 @@
+.cf:before, .cf:after {
+    content: " ";
+    display: table;
+}
+
+.parent {
+  margin-left: 1%;
+  margin-top: 0;
+  z-index: 1;
+
+}
+.heading {
+  z-index: 2
+}
+
+.col {
+  height:720px;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+.fl {
+    float: left;
+    _display: inline;
+}
+
+.w-24 {
+    width: 300px;
+}
+
+.bg-black-05 {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.pv5 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.tc {
+    text-align: center;
+}
+
+
+.col1 {
+  background-image: url('./Drake.jpg');
+}
+.col2 {
+  background-image: url('./Travis.jpg');
+}
