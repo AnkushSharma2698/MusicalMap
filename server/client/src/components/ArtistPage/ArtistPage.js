@@ -114,8 +114,8 @@ class ArtistPage extends Component {
           className="reactPlayer"
           url={song}
           width={"inherit"}
-          height={80}
-          style={{ backgroundColor: "#27ae60" }}
+          height={150}
+          style={{ backgroundImage: "url('https://vignette.wikia.nocookie.net/spongebob/images/5/51/A_very_small_picture.jpg/revision/latest?cb=20120913052456')" }}
           playing={false}
           controls={true}
         />

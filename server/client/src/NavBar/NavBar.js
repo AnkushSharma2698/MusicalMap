@@ -18,7 +18,7 @@ const NavBar = (props) => {
           Dashboard
       </Link>
       <div className="flex-grow pa3 flex items-center">
-        <a className="f6 link dib white dim mr3 mr4-ns" href="#0">About</a>
+        <a className="f6 link dib white dim mr3 mr4-ns" href="/About">About</a>
         <Link
           to={{
             pathname: "/Profile",
