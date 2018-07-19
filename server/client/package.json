@@ -16,6 +16,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-particles-js": "^2.2.0",
+    "react-play-button": "^0.1.1",
     "react-player": "^1.6.4",
     "react-player-controls": "^0.5.20",
     "react-router-dom": "^4.3.1",

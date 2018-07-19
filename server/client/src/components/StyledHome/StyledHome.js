@@ -7,7 +7,7 @@ const StyledHome = () => {
 
   return(
     <div>
-      <div class="cf parent">
+      <div class="cf parent1">
         <div class="fl w-24 tc pv5 bg-black-05 col col1">
           {/* <img src={Drake}/> */}
         </div>

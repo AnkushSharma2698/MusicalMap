@@ -23,10 +23,10 @@ const HomePage = () => {
       </div>
       <div className='Button'>
         <a href="http://localhost:8888" class="btn btn-green btn-lg ">
-            <button>Login To Spotify</button>
+            <button className='HomeButton'>Login To Spotify</button>
         </a><br/>
         <a href="/About" class="btn btn-green btn-lg ">
-            <button>About us</button>
+            <button className='HomeButton'>About us</button>
         </a>
       </div>
       <Tilt
@@ -34,7 +34,7 @@ const HomePage = () => {
             options={{ max: 50 }}
             // style={{ height: 225, width: 200 }}
           >
-            <a href='https://github.com/AnkushSharma2698/MusicalMap'><img className="resize" src={GitLogo} alt="" /></a>
+            <a href='https://github.com/AnkushSharma2698/MusicalMap'><img className="resize2" src={GitLogo} alt="" /></a>
       </Tilt>
       <div id='homefooter'>
         <h4>Created by <a href='https://github.com/AnkushSharma2698'>Ankush Sharma</a> and <a href='https://github.com/roychowd'>Dhruba Chowdhoury</a></h4>

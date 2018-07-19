@@ -11,6 +11,9 @@ import particlesOptions from "../../Background/particlesOptions";
 import Tilt from "react-tilt";
 import NavBar from "../../NavBar/NavBar";
 
+//Importing the controls for the songs
+
+
 // ===== Implement an artist card with its respective css component === //
 
 class ArtistPage extends Component {
@@ -143,21 +146,20 @@ class ArtistPage extends Component {
       console.log("ARRAY", this.state.AlbumPic[k]);
       results.push(
 
-        <div className="flex flexy">
+        <div className="flex flexy player-wrapper">
           <Tilt
             className="Tilt options"
             options={{ max: 50 }}
-            style={{ height: 225, width: 200 }}
+            style={{ height: 200, width: 200 }}
           >
             <img className="resize" src={this.state.AlbumPic[k]} alt="" />
             <h5>{this.state.songName[k]}</h5>
           </Tilt>
-
           <ReactPlayer
-            className="reactPlayer"
+            className="reactPlayer player"
             url={this.state.songURL[k]}
             width={"inherit"}
-            height={80}
+            height={40}
             playing={false}
             controls={true}
           />
@@ -167,24 +169,24 @@ class ArtistPage extends Component {
     return results;
   }
 
-      <div className="flex flexy">
-        <ReactPlayer
-          className="reactPlayer"
-          url={song}
-          width={"inherit"}
-          height={150}
-          style={{ backgroundImage: "url('https://vignette.wikia.nocookie.net/spongebob/images/5/51/A_very_small_picture.jpg/revision/latest?cb=20120913052456')" }}
-          playing={false}
-          controls={true}
-        />
-      </div>
-      )
-    })
-    return results
-
-
   showRelatedArtists() {
     let results = [];
+    for(let k=0; k<3;k++) {
+      console.log('Artist pics:', this.state.relatedArtistImages);
+      results.push(
+        <div className = 'eachartist'>
+          <Tilt
+            className="Tilt options"
+            options={{ max: 50 }}
+            style={{ height: 200, width: 200 }}
+          >
+            <img className='resize' src={this.state.relatedArtistImages[k]} alt=''/>
+            <h5>{this.state.relatedArtists[k]}</h5>
+          </Tilt>
+        </div>
+      )
+    }
+    return results
   }
 
   render() {
@@ -200,7 +202,7 @@ class ArtistPage extends Component {
             getHashParams={this.getHashParams()}
             artistName={this.getHashParams().artist_name}
           />
-
+          {/* //=========CARD IS HERE=====// */}
           <div className="blog-card spring-fever">
             <img src={this.state.imageLink} alt="" />
             <div className="title-content">
@@ -227,8 +229,16 @@ class ArtistPage extends Component {
             <div className="color-overlay" />
           </div>
           {/* //REACT PLAYER STARTS HERE ++++++++ */}
-          {this.showTracks()}
-          {this.showRelatedArtists()}
+          <div className=' flex rendering'>
+            <div className='flex tracks'>
+              <h3>Top Songs</h3>
+              {this.showTracks()}
+            </div>
+            <div className='themartists'>
+              <h3>Related Artists</h3>
+              {this.showRelatedArtists()}
+            </div>
+          </div>
         </div>
 
     );
