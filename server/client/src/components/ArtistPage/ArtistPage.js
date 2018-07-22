@@ -92,7 +92,7 @@ class ArtistPage extends Component {
         });
 
       //
-    }, 250);
+    }, 300);
 
     //get artist name
     setTimeout(() => {
@@ -111,7 +111,7 @@ class ArtistPage extends Component {
           console.log(artist, aURL);
           this.setState({ relatedArtistImages: aURL, relatedArtists: artist });
         });
-    }, 250);
+    }, 300);
   }
 
   numberWithCommas = x => {
@@ -139,6 +139,7 @@ class ArtistPage extends Component {
       relatedArtists: [],
       relatedArtistImages: []
     });
+    window.location.reload();
   };
   //Used to Parse the parameters
   getHashParams() {
