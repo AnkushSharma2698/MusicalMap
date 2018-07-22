@@ -127,18 +127,19 @@ class ArtistPage extends Component {
   };
 
   reloadPage = event => {
-
-    this.setState({imageLink: "",
-    artist_Name: "",
-    genres: "",
-    followers: "",
-    artistId: "",
-    songURL: [],
-    songName: [],
-    AlbumPic: [],
-    relatedArtists: [],
-    relatedArtistImages: []})
-  }
+    this.setState({
+      imageLink: "",
+      artist_Name: "",
+      genres: "",
+      followers: "",
+      artistId: "",
+      songURL: [],
+      songName: [],
+      AlbumPic: [],
+      relatedArtists: [],
+      relatedArtistImages: []
+    });
+  };
   //Used to Parse the parameters
   getHashParams() {
     var hashParams = {};
@@ -204,25 +205,24 @@ class ArtistPage extends Component {
             <h5>{this.state.relatedArtists[k]}</h5>
           </Tilt>
           <div className="ph3 buttondiv">
-          <Link
-            to={{
-              pathname: "/ArtistPage",
-              hash: `access_token=${
-                this.getHashParams().access_token
-              }&artist_name=${this.state.relatedArtists[k]}`
-            }}
-            onClick={this.reloadPage.bind(this)}
-            className="f6 grow link dim ph3 pv2 mb2 dib white w-100 submit"
-          >
-            Submit
-          </Link>
-        </div>
+            <Link
+              to={{
+                pathname: "/ArtistPage",
+                hash: `access_token=${
+                  this.getHashParams().access_token
+                }&artist_name=${this.state.relatedArtists[k]}`
+              }}
+              onClick={this.reloadPage.bind(this)}
+              className="f6 grow link dim ph3 pv2 mb2 dib white w-100 submit"
+            >
+              Goto Artist
+            </Link>
+          </div>
         </div>
       );
     }
     return results;
   }
-
 
   render() {
     return (
@@ -272,7 +272,6 @@ class ArtistPage extends Component {
             <h3>Related Artists</h3>
             {this.showRelatedArtists()}
           </div>
-          
         </div>
       </div>
     );
