@@ -10,9 +10,9 @@ import Particles from "react-particles-js";
 import particlesOptions from "../../Background/particlesOptions";
 import Tilt from "react-tilt";
 import NavBar from "../../NavBar/NavBar";
+import { Route, Link } from "react-router-dom";
 
 //Importing the controls for the songs
-
 
 // ===== Implement an artist card with its respective css component === //
 
@@ -126,6 +126,19 @@ class ArtistPage extends Component {
     }
   };
 
+  reloadPage = event => {
+
+    this.setState({imageLink: "",
+    artist_Name: "",
+    genres: "",
+    followers: "",
+    artistId: "",
+    songURL: [],
+    songName: [],
+    AlbumPic: [],
+    relatedArtists: [],
+    relatedArtistImages: []})
+  }
   //Used to Parse the parameters
   getHashParams() {
     var hashParams = {};
@@ -145,14 +158,17 @@ class ArtistPage extends Component {
     for (let k = 0; k < 3; k++) {
       console.log("ARRAY", this.state.AlbumPic[k]);
       results.push(
-
         <div className="flex flexy player-wrapper">
           <Tilt
             className="Tilt options"
             options={{ max: 50 }}
             style={{ height: 200, width: 200 }}
           >
-            <img className="resize" src={this.state.AlbumPic[k]} alt="" />
+            <img
+              className="resize br3 shadow-3"
+              src={this.state.AlbumPic[k]}
+              alt=""
+            />
             <h5>{this.state.songName[k]}</h5>
           </Tilt>
           <ReactPlayer
@@ -171,76 +187,94 @@ class ArtistPage extends Component {
 
   showRelatedArtists() {
     let results = [];
-    for(let k=0; k<3;k++) {
-      console.log('Artist pics:', this.state.relatedArtistImages);
+    for (let k = 0; k < 3; k++) {
+      console.log("Artist pics:", this.state.relatedArtists[k]);
       results.push(
-        <div className = 'eachartist'>
+        <div className="eachartist">
           <Tilt
             className="Tilt options"
             options={{ max: 50 }}
             style={{ height: 200, width: 200 }}
           >
-            <img className='resize' src={this.state.relatedArtistImages[k]} alt=''/>
+            <img
+              className="resize br3 shadow-3"
+              src={this.state.relatedArtistImages[k]}
+              alt=""
+            />
             <h5>{this.state.relatedArtists[k]}</h5>
           </Tilt>
+          <div className="ph3 buttondiv">
+          <Link
+            to={{
+              pathname: "/ArtistPage",
+              hash: `access_token=${
+                this.getHashParams().access_token
+              }&artist_name=${this.state.relatedArtists[k]}`
+            }}
+            onClick={this.reloadPage.bind(this)}
+            className="f6 grow link dim ph3 pv2 mb2 dib white w-100 submit"
+          >
+            Submit
+          </Link>
         </div>
-      )
+        </div>
+      );
     }
-    return results
+    return results;
   }
+
 
   render() {
     return (
-
-        <div className="flex parent">
-          <Particles
-            className="particles"
-            id="particlesOptions"
-            params={particlesOptions}
-          />
-          <NavBar
-            getHashParams={this.getHashParams()}
-            artistName={this.getHashParams().artist_name}
-          />
-          {/* //=========CARD IS HERE=====// */}
-          <div className="blog-card spring-fever">
-            <img src={this.state.imageLink} alt="" />
-            <div className="title-content">
-              <h2>{this.state.artist_Name}</h2>
-              <hr />
-              <div className="intro" />
-            </div>
-            {/* /.title-content */}
-            <div className="card-info">
-              <h3 className="followers">
-                <span className="little-header">Followers:</span>{" "}
-                {this.numberWithCommas(this.state.followers)}
-              </h3>
-              <h3 className="followers">
-                <span className="little-header">Genres:</span>{" "}
-                {this.checkGenres(this.state.genres)}
-              </h3>
-            </div>
-            {/* /.card-info */}
-            <div className="utility-info" />
-            {/* /.utility-info */}
-            {/* overlays */}
-            <div className="gradient-overlay" />
-            <div className="color-overlay" />
+      <div className="flex parent">
+        <Particles
+          className="particles"
+          id="particlesOptions"
+          params={particlesOptions}
+        />
+        <NavBar
+          getHashParams={this.getHashParams()}
+          artistName={this.getHashParams().artist_name}
+        />
+        {/* //=========CARD IS HERE=====// */}
+        <div className="blog-card spring-fever">
+          <img src={this.state.imageLink} alt="" />
+          <div className="title-content">
+            <h2>{this.state.artist_Name}</h2>
+            <hr />
+            <div className="intro" />
           </div>
-          {/* //REACT PLAYER STARTS HERE ++++++++ */}
-          <div className=' flex rendering'>
-            <div className='flex tracks'>
-              <h3>Top Songs</h3>
-              {this.showTracks()}
-            </div>
-            <div className='themartists'>
-              <h3>Related Artists</h3>
-              {this.showRelatedArtists()}
-            </div>
+          {/* /.title-content */}
+          <div className="card-info">
+            <h3 className="followers">
+              <span className="little-header">Followers:</span>{" "}
+              {this.numberWithCommas(this.state.followers)}
+            </h3>
+            <h3 className="followers">
+              <span className="little-header">Genres:</span>{" "}
+              {this.checkGenres(this.state.genres)}
+            </h3>
           </div>
+          {/* /.card-info */}
+          <div className="utility-info" />
+          {/* /.utility-info */}
+          {/* overlays */}
+          <div className="gradient-overlay" />
+          <div className="color-overlay" />
         </div>
-
+        {/* //REACT PLAYER STARTS HERE ++++++++ */}
+        <div className=" flex rendering">
+          <div className="flex tracks">
+            <h3>Top Songs</h3>
+            {this.showTracks()}
+          </div>
+          <div className="themartists">
+            <h3>Related Artists</h3>
+            {this.showRelatedArtists()}
+          </div>
+          
+        </div>
+      </div>
     );
   }
 }
