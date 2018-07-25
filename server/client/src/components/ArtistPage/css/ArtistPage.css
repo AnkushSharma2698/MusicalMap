@@ -43,12 +43,13 @@
 .tracks {
   text-align: center;
   flex-direction: column;
+  padding-bottom: 290px;
 }
 .themartists {
   text-align: center;
 }
 .eachartist {
-  margin-bottom: 120px;
+  margin-bottom: 75px;
 }
 h3 {
   color:white;

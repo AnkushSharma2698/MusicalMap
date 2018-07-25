@@ -54,3 +54,17 @@
 .col2 {
   background-image: url('./Travis.jpg');
 }
+
+.SecTitle {
+  text-decoration-line: underline;
+  font-size: 180%;
+}
+
+p {
+  color:white;
+  font-size: large;
+}
+
+.contactInfo {
+  color:white;
+}

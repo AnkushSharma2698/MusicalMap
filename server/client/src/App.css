@@ -19,3 +19,14 @@
 div, button {
   margin:15px;
 }
+
+/* //fade props */
+.fade-enter {
+  opacity: 0;
+  z-index: 2;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1200ms ease-in;
+}

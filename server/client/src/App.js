@@ -12,6 +12,9 @@ import About from './components/StyledHome/StyledHome';
 //import SpotifyWebApi from 'spotify-web-api-js';
 //const spotifyApi = new SpotifyWebApi();
 
+//Import transitions
+import { TransitionGroup,CSSTransition} from 'react-transition-group';
+
 //=====================================
 
 class App extends Component {
@@ -29,13 +32,22 @@ class App extends Component {
 
   render() {
     return(
-      <Switch>
-        <Route exact path='/' component={HomePage}/>
-        <Route exact path='/About' component={About}/>
-        <Route exact path='/Dashboard' render={()=><Dashboard getArtistId={this.sendArtistIdtoPage}/>}/>
-        <Route exact path='/ArtistPage' render={()=><ArtistPage  artistId= {this.state.artistId}/> } />
-        <Route exact path='/Profile' component={Profile}/>
-      </Switch>
+      <TransitionGroup>
+        <CSSTransition
+          key={window.location}
+          timeout={1200}
+          classNames='fade'
+          >
+          <Switch location={window.location}>
+              <Route exact path='/' component={HomePage}/>
+              <Route exact path='/About' component={About}/>
+              <Route exact path='/Dashboard' render={()=><Dashboard getArtistId={this.sendArtistIdtoPage}/>}/>
+              <Route exact path='/ArtistPage' render={()=><ArtistPage  artistId= {this.state.artistId}/> } />
+              <Route exact path='/Profile' component={Profile}/>
+              <Route render={()=> <div><h1>Page Not Found</h1></div>}/>
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
     )
   }
 }

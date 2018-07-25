@@ -56,7 +56,7 @@ class ArtistPage extends Component {
         });
       })
       .catch(error => {
-        console.log(error);
+        alert('Could Not Find Artist Information. Please Refresh Your Browser');
       });
 
     // === grabs the similar artists related to the artist that is searched ===
@@ -88,11 +88,13 @@ class ArtistPage extends Component {
             songName: song.SNAME,
             AlbumPic: song.PIC
           });
-          console.log(this.state.songURL);
+          })
+          .catch(error=> {
+            alert('Could Not Find Artist Information. Please Refresh Your Browser');
         });
 
       //
-    }, 300);
+    }, 250);
 
     //get artist name
     setTimeout(() => {
@@ -111,7 +113,7 @@ class ArtistPage extends Component {
           console.log(artist, aURL);
           this.setState({ relatedArtistImages: aURL, relatedArtists: artist });
         });
-    }, 300);
+    }, 250);
   }
 
   numberWithCommas = x => {
@@ -216,7 +218,7 @@ class ArtistPage extends Component {
               onClick={this.reloadPage.bind(this)}
               className="f6 grow link dim ph3 pv2 mb2 dib white w-100 submit"
             >
-              Goto Artist
+              Go to Artist
             </Link>
           </div>
         </div>

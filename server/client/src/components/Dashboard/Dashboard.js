@@ -50,20 +50,13 @@ class Dashboard extends Component {
         })
       );
       //
-    });
+    })
+    .catch(error => {
+      alert('Unable to get Top Artists')
+    })
   }
 
-  enterFunc=(event)=> {
-    if (event.which===13) {
-      this.searchSportifyArtists(event);
-    }
 
-  }
-
-  //Listen for global enter Express
-  componentDidMount() {
-    document.addEventListener("keydown", this.enterFunc, false);
-  }
 
   getHashParams() {
     var hashParams = {};
@@ -123,6 +116,24 @@ class Dashboard extends Component {
       });
   };
 
+  ShowSubmit = () => {
+    if (this.state.inputState !=='') {
+      return  (
+      <Link
+        to={{
+          pathname: "/ArtistPage",
+          hash: `access_token=${
+            this.getHashParams().access_token
+          }&artist_name=${this.state.inputState}`
+        }}
+        className="f6 grow link dim ph3 pv2 mb2 dib white w-100 submit"
+      >
+        Submit
+      </Link>
+      )
+    }
+  }
+
   render() {
     return (
       <div className="dashboard flex">
@@ -147,17 +158,7 @@ class Dashboard extends Component {
         </div>
         {/* //==========Submit Button========// */}
         <div className="ph3 buttondiv">
-          <Link
-            to={{
-              pathname: "/ArtistPage",
-              hash: `access_token=${
-                this.getHashParams().access_token
-              }&artist_name=${this.state.inputState}`
-            }}
-            className="f6 grow link dim ph3 pv2 mb2 dib white w-100 submit"
-          >
-            Submit
-          </Link>
+          {this.ShowSubmit()}
         </div>
 
         {/* /=========TOP ARTISTS CARD=========/ */}

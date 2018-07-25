@@ -37,7 +37,7 @@ const HomePage = () => {
             <a href='https://github.com/AnkushSharma2698/MusicalMap'><img className="resize2" src={GitLogo} alt="" /></a>
       </Tilt>
       <div id='homefooter'>
-        <h4>Created by <a href='https://github.com/AnkushSharma2698'>Ankush Sharma</a> and <a href='https://github.com/roychowd'>Dhruba Chowdhoury</a></h4>
+        <h4>Created by <a href='https://github.com/AnkushSharma2698'>Ankush Sharma</a> and <a href='https://github.com/roychowd'>Dhruba Chowdhury</a></h4>
       </div>
     </div>
   )
