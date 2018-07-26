@@ -18,7 +18,12 @@ const NavBar = (props) => {
           Dashboard
       </Link>
       <div className="flex-grow pa3 flex items-center">
-        <a className="f6 link dib white dim mr3 mr4-ns" href="/About">About</a>
+        <Link
+          to={{
+            pathname:'/About'
+          }}
+          className="f6 link dib white dim mr3 mr4-ns" href="/About">About
+        </Link>
         <Link
           to={{
             pathname: "/Profile",
@@ -29,7 +34,9 @@ const NavBar = (props) => {
           className="f6 link dib white dim mr3 mr4-ns" href="/Profile">
           Profile
         </Link>
-        <a className="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" href="/">Sign Out</a>
+        <Link
+          to={{pathname:'/'}}
+          className="f6 dib white bg-animate hover-bg-white hover-black no-underline pv2 ph4 br-pill ba b--white-20" href="/">Sign Out</Link>
       </div>
     </nav>
   )

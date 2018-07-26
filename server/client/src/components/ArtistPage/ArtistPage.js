@@ -12,7 +12,7 @@ import Tilt from "react-tilt";
 import NavBar from "../../NavBar/NavBar";
 import { Route, Link } from "react-router-dom";
 
-//Importing the controls for the songs
+//
 
 // ===== Implement an artist card with its respective css component === //
 

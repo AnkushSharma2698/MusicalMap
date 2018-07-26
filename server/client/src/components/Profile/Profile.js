@@ -15,6 +15,7 @@ import particlesOptions from "../../Background/particlesOptions";
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
 
+
 class Profile extends Component{
   constructor() {
     super();

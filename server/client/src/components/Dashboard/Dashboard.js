@@ -19,6 +19,8 @@ import { spotifySearchURL } from "../../SpotifyConstants/SpotifyConstants";
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
 
+
+
 //Social Media styling
 const mediaStyle = {
   fill: "currentcolor"

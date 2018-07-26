@@ -3,8 +3,8 @@ import './StyledHome.css';
 import Drake from './Drake.jpg';
 
 const StyledHome = () => {
-  document.body.style = 'background: black;';
-
+  document.body.style = 'linear-gradient(to right, #dae2f8, #d6a4a4);';
+// linear-gradient(to right, #dae2f8, #d6a4a4);
   return(
     <div>
       <div class="cf parent1">
@@ -14,7 +14,7 @@ const StyledHome = () => {
         </div>
         <div>
           <h1>Created By:</h1>
-          <h2>Ankush Sharma and Dhruba Chowdhury</h2>
+          <h2 className='names'>Ankush Sharma and Dhruba Chowdhury</h2>
         </div>
         <br/>
         <div>
